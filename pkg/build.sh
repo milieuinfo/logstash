@@ -43,7 +43,7 @@ case $os@$release in
     mkdir -p $destdir/opt/logstash/tmp
     mkdir -p $destdir/var/lib/logstash
     mkdir -p $destdir/var/run/logstash
-    mkdir -p $destdir/var/log/logstash
+    install -m755 -d -o logstash -g logstash $destdir/var/log/logstash
     cp $os/sysconfig $destdir/etc/sysconfig/logstash
     install -m644 logrotate.conf $destdir/etc/logrotate.d/
     install -m755 logstash.sysv.redhat $destdir/etc/init.d/logstash
@@ -51,7 +51,7 @@ case $os@$release in
   ubuntu@*)
     mkdir -p $destdir/etc/logrotate.d
     mkdir -p $destdir/etc/init
-    mkdir -p $destdir/var/log/logstash
+    install -m755 -d -o logstash -g logstash $destdir/var/log/logstash
     touch $destdir/etc/sysconfig/logstash
     install -m644 logrotate.conf $destdir/etc/logrotate.d/
     install -m755 logstash.upstart.ubuntu $destdir/etc/init/logstash.conf
@@ -61,7 +61,7 @@ case $os@$release in
     mkdir -p $destdir/etc/init.d
     mkdir -p $destdir/var/lib/logstash
     mkdir -p $destdir/var/run/logstash
-    mkdir -p $destdir/var/log/logstash
+    install -m755 -d -o logstash -g logstash $destdir/var/log/logstash
     install -m644 logrotate.conf $destdir/etc/logrotate.d/
     install -m755 logstash.sysv.debian $destdir/etc/init.d/logstash
     ;;
