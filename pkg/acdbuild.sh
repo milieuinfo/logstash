@@ -36,7 +36,7 @@ cp $jar $destdir/$prefix/logstash.jar
 
 mkdir -p $destdir/etc/logrotate.d
 mkdir -p $destdir/etc/init
-mkdir -p $destdir/var/log/logstash
+install -m755 -d -o logstash -g logstash $destdir/var/log/logstash
 touch $destdir/var/log/logstash/logstash.log
 mkdir -p $destdir/etc/sysconfig
 touch $destdir/etc/sysconfig/logstash
