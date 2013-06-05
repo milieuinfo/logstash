@@ -22,7 +22,6 @@ if [ "$destdir/$prefix" != "/" -a -d "$destdir/$prefix" ] ; then
   rm -rf "$destdir/$prefix"
 fi
 
-mkdir -p $destdir/$prefix
 
 
 # install logstash.jar
@@ -32,8 +31,8 @@ if [ ! -f "$jar" ] ; then
   exit 1
 fi
 
-cp $jar $destdir/$prefix/logstash.jar
-
+mkdir -p $destdir/$prefix
+install -m644 $jar $destdir/$prefix/logstash.jar
 mkdir -p $destdir/etc/logrotate.d
 mkdir -p $destdir/etc/init
 install -m755 -d -o logstash -g logstash $destdir/var/log/logstash
